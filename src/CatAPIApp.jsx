@@ -5,6 +5,7 @@ const CatAPIApp = () => {
   const [breed, setBreed] = useState('');
   const [catImage, setCatImage] = useState('');
   const [error, setError] = useState(null);
+  const API_KEY = 'live_DoGGm9xY5WsiCLKLK9Pcv53FWpUNszV7lVb5n9CsiZqXQsQJYR0IUnD9Wx43RK3W';
 
   const fetchCatImage = async (e) => {
     e.preventDefault();
@@ -21,7 +22,7 @@ const CatAPIApp = () => {
       console.log(data);
 
       if (!data.length){
-        throw new Error('Tidak ada gambar kucing yang ditemukan');
+        throw new Error('Gambar kucing tidak ditemukan');
       }
       setCatImage(data[0]?.url || ''); 
     } catch (err) {
@@ -30,6 +31,7 @@ const CatAPIApp = () => {
   };
 
   return (
+
     <div className='card'>
     <div style={{ textAlign: 'center', padding: '20px' }}>
       <h2>Cari Gambar Kucingmu</h2>
